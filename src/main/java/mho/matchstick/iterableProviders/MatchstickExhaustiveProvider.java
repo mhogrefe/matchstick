@@ -1,5 +1,6 @@
 package mho.matchstick.iterableProviders;
 
+import mho.matchstick.objects.LabeledGraph;
 import mho.wheels.iterables.ExhaustiveProvider;
 import mho.wheels.ordering.Ordering;
 import org.jetbrains.annotations.NotNull;
@@ -38,5 +39,10 @@ public final strictfp class MatchstickExhaustiveProvider extends MatchstickItera
 
     public @NotNull Iterable<Character> charactersIncreasing() {
         return ExhaustiveProvider.INSTANCE.charactersIncreasing();
+    }
+
+    @Override
+    public @NotNull <T extends Comparable<T>> Iterable<LabeledGraph<T>> labeledGraphs(@NotNull Iterable<T> ns) {
+        return null;
     }
 }

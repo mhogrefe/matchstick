@@ -1,5 +1,6 @@
 package mho.matchstick.iterableProviders;
 
+import mho.matchstick.objects.LabeledGraph;
 import mho.wheels.iterables.IterableProvider;
 import mho.wheels.math.BinaryFraction;
 import mho.wheels.ordering.Ordering;
@@ -902,4 +903,8 @@ public abstract strictfp class MatchstickIterableProvider {
     public @NotNull Iterable<String> permutations(@NotNull String s) {
         return wheelsProvider.permutations(s);
     }
+
+    public abstract @NotNull <T extends Comparable<T>> Iterable<LabeledGraph<T>> labeledGraphs(
+            @NotNull Iterable<T> ns
+    );
 }
