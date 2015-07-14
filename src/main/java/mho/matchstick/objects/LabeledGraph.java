@@ -64,6 +64,14 @@ public final class LabeledGraph<T extends Comparable<T>> {
         return new LabeledGraph<>(sortedNodes, indexMap, sortedEdges);
     }
 
+    public @NotNull List<T> getNodes() {
+        return toList(nodes);
+    }
+
+    public @NotNull List<Pair<Integer, Integer>> getEdges() {
+        return toList(edges);
+    }
+
     public int order() {
         return nodes.size();
     }
