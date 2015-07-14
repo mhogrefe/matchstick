@@ -1,3 +1,5 @@
+package mho.matchstick.objects;
+
 import mho.wheels.structures.Pair;
 import org.jetbrains.annotations.NotNull;
 
