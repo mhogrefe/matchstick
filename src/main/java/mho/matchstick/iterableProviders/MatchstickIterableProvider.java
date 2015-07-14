@@ -15,7 +15,7 @@ import java.util.Optional;
 import java.util.function.Function;
 
 @SuppressWarnings("unused")
-public abstract class MatchstickIterableProvider {
+public abstract strictfp class MatchstickIterableProvider {
     protected @NotNull IterableProvider wheelsProvider;
 
     protected MatchstickIterableProvider(@NotNull IterableProvider wheelsProvider) {
