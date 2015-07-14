@@ -27,7 +27,7 @@ public final class LabeledGraph<T extends Comparable<T>> {
         this.edges = edges;
     }
 
-    public static @NotNull <T extends Comparable<T>> LabeledGraph of(
+    public static @NotNull <T extends Comparable<T>> LabeledGraph<T> of(
             @NotNull List<T> nodes,
             @NotNull List<Pair<Integer, Integer>> edges
     ) {
@@ -61,7 +61,7 @@ public final class LabeledGraph<T extends Comparable<T>> {
             sortedEdges.add(newA < newB ? new Pair<>(newA, newB) : new Pair<>(newB, newA));
         }
         sortedEdges = toList(nub(sort(EDGE_COMPARATOR, sortedEdges)));
-        return new LabeledGraph(sortedNodes, indexMap, sortedEdges);
+        return new LabeledGraph<>(sortedNodes, indexMap, sortedEdges);
     }
 
     public int order() {
