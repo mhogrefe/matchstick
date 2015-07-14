@@ -29,10 +29,50 @@ public final class DirectedGraph<T extends Comparable<T>> {
         this.edges = edges;
     }
 
+    public int order() {
+        return nodes.size();
+    }
+
+    public int size() {
+        return edges.size();
+    }
+
+    public @NotNull List<T> isolatedNodes() {
+        List<T> isolatedNodes = toList(nodes);
+        for (Pair<Integer, Integer> edge : edges) {
+            isolatedNodes.remove(nodes.get(edge.a));
+            isolatedNodes.remove(nodes.get(edge.b));
+        }
+        return isolatedNodes;
+    }
+
+    public @NotNull String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append('[');
+        String prefix = "";
+        for (T isolatedNode : isolatedNodes()) {
+            sb.append(prefix);
+            sb.append(isolatedNode);
+            prefix = ", ";
+        }
+        for (Pair<Integer, Integer> edge : edges) {
+            sb.append(prefix);
+            sb.append('(');
+            sb.append(nodes.get(edge.a));
+            sb.append(", ");
+            sb.append(nodes.get(edge.b));
+            sb.append(')');
+            prefix = ", ";
+        }
+        sb.append(']');
+        return sb.toString();
+    }
+
     @SuppressWarnings("SimplifiableIfStatement")
     public void validate() {
         int order = nodes.size();
         assertFalse(toString(), any(n -> n == null, nodes));
+        assertTrue(toString(), increasing(nodes));
         assertEquals(toString(), indexMap.size(), order);
         assertTrue(
                 toString(),
