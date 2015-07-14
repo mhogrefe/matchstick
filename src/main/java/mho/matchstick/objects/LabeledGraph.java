@@ -3,14 +3,12 @@ package mho.matchstick.objects;
 import mho.wheels.structures.Pair;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static mho.wheels.iterables.IterableUtils.*;
 import static org.junit.Assert.*;
 
-public final class DirectedGraph<T extends Comparable<T>> {
+public final class LabeledGraph<T extends Comparable<T>> {
     private static final @NotNull Comparator<Pair<Integer, Integer>> EDGE_COMPARATOR = new Pair.PairComparator<>(
             Integer::compare,
             Integer::compare
@@ -19,7 +17,7 @@ public final class DirectedGraph<T extends Comparable<T>> {
     private @NotNull Map<T, Integer> indexMap;
     private @NotNull List<Pair<Integer, Integer>> edges;
 
-    private DirectedGraph(
+    private LabeledGraph(
             @NotNull List<T> nodes,
             @NotNull Map<T, Integer> indexMap,
             @NotNull List<Pair<Integer, Integer>> edges
@@ -27,6 +25,43 @@ public final class DirectedGraph<T extends Comparable<T>> {
         this.nodes = nodes;
         this.indexMap = indexMap;
         this.edges = edges;
+    }
+
+    public static @NotNull <T extends Comparable<T>> LabeledGraph of(
+            @NotNull List<T> nodes,
+            @NotNull List<Pair<Integer, Integer>> edges
+    ) {
+        if (any(n -> n == null, nodes)) {
+            throw new NullPointerException();
+        }
+        if (!unique(nodes)) {
+            throw new IllegalArgumentException();
+        }
+        int order = nodes.size();
+        for (Pair<Integer, Integer> edge : edges) {
+            if (edge == null || edge.a == null || edge.b == null) {
+                throw new NullPointerException();
+            }
+            if (edge.a.equals(edge.b)) {
+                throw new IllegalArgumentException();
+            }
+            if (edge.a < 0 || edge.a >= order || edge.b < 0 || edge.b >= order) {
+                throw new IllegalArgumentException();
+            }
+        }
+        List<T> sortedNodes = sort(nodes);
+        Map<T, Integer> indexMap = new HashMap<>();
+        for (int i = 0; i < order; i++) {
+            indexMap.put(sortedNodes.get(i), i);
+        }
+        List<Pair<Integer, Integer>> sortedEdges = new ArrayList<>();
+        for (Pair<Integer, Integer> edge : edges) {
+            Integer newA = indexMap.get(nodes.get(edge.a));
+            Integer newB = indexMap.get(nodes.get(edge.b));
+            sortedEdges.add(newA < newB ? new Pair<>(newA, newB) : new Pair<>(newB, newA));
+        }
+        sortedEdges = toList(nub(sort(EDGE_COMPARATOR, sortedEdges)));
+        return new LabeledGraph(sortedNodes, indexMap, sortedEdges);
     }
 
     public int order() {
@@ -93,7 +128,6 @@ public final class DirectedGraph<T extends Comparable<T>> {
                         edges
                 )
         );
-        assertTrue(toString(), unique(edges));
         assertTrue(toString(), increasing(EDGE_COMPARATOR, edges));
     }
 }
