@@ -2,7 +2,7 @@ package mho.matchstick.objects;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class LabeledGraphBuilderTest {
     @Test

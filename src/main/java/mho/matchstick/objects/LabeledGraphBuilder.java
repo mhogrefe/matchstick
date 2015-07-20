@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static mho.wheels.iterables.IterableUtils.*;
+import static mho.wheels.iterables.IterableUtils.toList;
 
 public class LabeledGraphBuilder<T extends Comparable<T>> {
     private @NotNull List<T> nodes;
