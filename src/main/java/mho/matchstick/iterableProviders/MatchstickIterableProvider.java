@@ -75,6 +75,13 @@ public abstract strictfp class MatchstickIterableProvider {
     }
 
     /**
+     * Generates {@link Ordering}s, in increasing order if applicable.
+     */
+    public @NotNull Iterable<Ordering> orderingsIncreasing() {
+        return wheelsProvider.orderingsIncreasing();
+    }
+
+    /**
      * Generates {@link Ordering}s.
      */
     public @NotNull Iterable<Ordering> orderings() {
@@ -104,6 +111,34 @@ public abstract strictfp class MatchstickIterableProvider {
      */
     public @NotNull Iterable<Character> uniformSample(@NotNull String s) {
         return wheelsProvider.uniformSample(s);
+    }
+
+    /**
+     * Generates {@code Byte}s, in increasing order if applicable.
+     */
+    public @NotNull Iterable<Byte> bytesIncreasing() {
+        return wheelsProvider.bytesIncreasing();
+    }
+
+    /**
+     * Generates {@code Short}s, in increasing order if applicable.
+     */
+    public @NotNull Iterable<Short> shortsIncreasing() {
+        return wheelsProvider.shortsIncreasing();
+    }
+
+    /**
+     * Generates {@code Integer}s, in increasing order if applicable.
+     */
+    public @NotNull Iterable<Integer> integersIncreasing() {
+        return wheelsProvider.integersIncreasing();
+    }
+
+    /**
+     * Generates {@code Long}s, in increasing order if applicable.
+     */
+    public @NotNull Iterable<Long> longsIncreasing() {
+        return wheelsProvider.longsIncreasing();
     }
 
     /**
@@ -282,10 +317,24 @@ public abstract strictfp class MatchstickIterableProvider {
     }
 
     /**
+     * Generates ASCII {@code Character}s, in increasing order if applicable.
+     */
+    public @NotNull Iterable<Character> asciiCharactersIncreasing() {
+        return wheelsProvider.asciiCharactersIncreasing();
+    }
+
+    /**
      * Generates ASCII {@code Character}s.
      */
     public @NotNull Iterable<Character> asciiCharacters() {
         return wheelsProvider.asciiCharacters();
+    }
+
+    /**
+     * Generates {@code Character}s, in increasing order if applicable.
+     */
+    public @NotNull Iterable<Character> charactersIncreasing() {
+        return wheelsProvider.charactersIncreasing();
     }
 
     /**
