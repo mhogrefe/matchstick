@@ -1095,6 +1095,14 @@ public abstract strictfp class MatchstickIterableProvider {
         return wheelsProvider.subsets(xs);
     }
 
+    public @NotNull <T> Iterable<List<T>> subsetsLimited(int maxSize, @NotNull Iterable<T> xs) {
+        return wheelsProvider.subsetsLimited(maxSize, xs);
+    }
+
+    public @NotNull <T> Iterable<List<T>> subsetsUniform(@NotNull List<T> xs) {
+        return wheelsProvider.subsetsUniform(xs);
+    }
+
     public @NotNull Iterable<String> stringSubsets(@NotNull String s) {
         return wheelsProvider.stringSubsets(s);
     }
