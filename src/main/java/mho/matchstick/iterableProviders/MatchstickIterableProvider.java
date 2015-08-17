@@ -13,6 +13,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.RoundingMode;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.function.Function;
 
@@ -1223,6 +1224,14 @@ public abstract strictfp class MatchstickIterableProvider {
 
     public @NotNull Iterable<RandomProvider> randomProvidersDefaultSecondaryScale() {
         return wheelsProvider.randomProvidersDefaultSecondaryScale();
+    }
+
+    public @NotNull <K, V> Iterable<Map<K, V>> maps(@NotNull List<K> ks, Iterable<V> vs) {
+        return wheelsProvider.maps(ks, vs);
+    }
+
+    public @NotNull Iterable<String> substrings(@NotNull String s) {
+        return wheelsProvider.substrings(s);
     }
 
     public abstract @NotNull <T extends Comparable<T>> Iterable<LabeledGraph<T>> labeledGraphs(
