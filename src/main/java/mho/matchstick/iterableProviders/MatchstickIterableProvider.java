@@ -1024,7 +1024,7 @@ public abstract strictfp class MatchstickIterableProvider {
      * @param <T> the type of values in the permutations
      */
     public @NotNull <T> Iterable<List<T>> permutations(@NotNull List<T> xs) {
-        return wheelsProvider.permutations(xs);
+        return wheelsProvider.permutationsFinite(xs);
     }
 
     /**
