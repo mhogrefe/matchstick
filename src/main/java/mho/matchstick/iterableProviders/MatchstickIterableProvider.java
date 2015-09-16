@@ -1049,14 +1049,14 @@ public abstract strictfp class MatchstickIterableProvider {
     }
 
     /**
-     * Generates all {@code List}s of a given size containing elements from a given {@code Iterable}. The elements are
-     * ordered lexicographically, matching the order given by the original {@code Iterable}.
+     * Generates all {@code List}s of a given size containing elements from a given {@code List}. The {@code List}s are
+     * ordered lexicographically, matching the order given by the original {@code List}.
      *
      * @param size the length of each of the generated {@code List}s
      * @param xs a {@code List} of elements
      * @param <T> the type of values in the {@code List}s
      */
-    public @NotNull <T> Iterable<List<T>> listsLex(int size, @NotNull Iterable<T> xs) {
+    public @NotNull <T> Iterable<List<T>> listsLex(int size, @NotNull List<T> xs) {
         return wheelsProvider.listsLex(size, xs);
     }
 
@@ -1069,7 +1069,7 @@ public abstract strictfp class MatchstickIterableProvider {
      * @param <A> the type of the first {@code Iterable}'s elements
      * @param <B> the type of the second {@code Iterable}'s elements
      */
-    public @NotNull <A, B> Iterable<Pair<A, B>> pairsLex(@NotNull Iterable<A> as, @NotNull Iterable<B> bs) {
+    public @NotNull <A, B> Iterable<Pair<A, B>> pairsLex(@NotNull Iterable<A> as, @NotNull List<B> bs) {
         return wheelsProvider.pairsLex(as, bs);
     }
 
@@ -1086,8 +1086,8 @@ public abstract strictfp class MatchstickIterableProvider {
      */
     public @NotNull <A, B, C> Iterable<Triple<A, B, C>> triplesLex(
             @NotNull Iterable<A> as,
-            @NotNull Iterable<B> bs,
-            @NotNull Iterable<C> cs
+            @NotNull List<B> bs,
+            @NotNull List<C> cs
     ) {
         return wheelsProvider.triplesLex(as, bs, cs);
     }
@@ -1107,9 +1107,9 @@ public abstract strictfp class MatchstickIterableProvider {
      */
     public @NotNull <A, B, C, D> Iterable<Quadruple<A, B, C, D>> quadruplesLex(
             @NotNull Iterable<A> as,
-            @NotNull Iterable<B> bs,
-            @NotNull Iterable<C> cs,
-            @NotNull Iterable<D> ds
+            @NotNull List<B> bs,
+            @NotNull List<C> cs,
+            @NotNull List<D> ds
     ) {
         return wheelsProvider.quadruplesLex(as, bs, cs, ds);
     }
@@ -1131,10 +1131,10 @@ public abstract strictfp class MatchstickIterableProvider {
      */
     public @NotNull <A, B, C, D, E> Iterable<Quintuple<A, B, C, D, E>> quintuplesLex(
             @NotNull Iterable<A> as,
-            @NotNull Iterable<B> bs,
-            @NotNull Iterable<C> cs,
-            @NotNull Iterable<D> ds,
-            @NotNull Iterable<E> es
+            @NotNull List<B> bs,
+            @NotNull List<C> cs,
+            @NotNull List<D> ds,
+            @NotNull List<E> es
     ) {
         return wheelsProvider.quintuplesLex(as, bs, cs, ds, es);
     }
@@ -1158,11 +1158,11 @@ public abstract strictfp class MatchstickIterableProvider {
      */
     public @NotNull <A, B, C, D, E, F> Iterable<Sextuple<A, B, C, D, E, F>> sextuplesLex(
             @NotNull Iterable<A> as,
-            @NotNull Iterable<B> bs,
-            @NotNull Iterable<C> cs,
-            @NotNull Iterable<D> ds,
-            @NotNull Iterable<E> es,
-            @NotNull Iterable<F> fs
+            @NotNull List<B> bs,
+            @NotNull List<C> cs,
+            @NotNull List<D> ds,
+            @NotNull List<E> es,
+            @NotNull List<F> fs
     ) {
         return wheelsProvider.sextuplesLex(as, bs, cs, ds, es, fs);
     }
@@ -1188,12 +1188,12 @@ public abstract strictfp class MatchstickIterableProvider {
      */
     public @NotNull <A, B, C, D, E, F, G> Iterable<Septuple<A, B, C, D, E, F, G>> septuplesLex(
             @NotNull Iterable<A> as,
-            @NotNull Iterable<B> bs,
-            @NotNull Iterable<C> cs,
-            @NotNull Iterable<D> ds,
-            @NotNull Iterable<E> es,
-            @NotNull Iterable<F> fs,
-            @NotNull Iterable<G> gs
+            @NotNull List<B> bs,
+            @NotNull List<C> cs,
+            @NotNull List<D> ds,
+            @NotNull List<E> es,
+            @NotNull List<F> fs,
+            @NotNull List<G> gs
     ) {
         return wheelsProvider.septuplesLex(as, bs, cs, ds, es, fs, gs);
     }
@@ -1216,7 +1216,7 @@ public abstract strictfp class MatchstickIterableProvider {
      * @param xs a {@code List} of elements
      * @param <T> the type of values in the {@code List}s
      */
-    public <T> Iterable<List<T>> listsShortlex(@NotNull Iterable<T> xs) {
+    public <T> Iterable<List<T>> listsShortlex(@NotNull List<T> xs) {
         return wheelsProvider.listsShortlex(xs);
     }
 
@@ -1239,7 +1239,7 @@ public abstract strictfp class MatchstickIterableProvider {
      * @param xs a {@code List} of elements
      * @param <T> the type of values in the {@code List}s
      */
-    public @NotNull <T> Iterable<List<T>> listsShortlexAtLeast(int minSize, @NotNull Iterable<T> xs) {
+    public @NotNull <T> Iterable<List<T>> listsShortlexAtLeast(int minSize, @NotNull List<T> xs) {
         return wheelsProvider.listsShortlexAtLeast(minSize, xs);
     }
 
