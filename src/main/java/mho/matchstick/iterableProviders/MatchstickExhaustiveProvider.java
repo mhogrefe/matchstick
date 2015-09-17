@@ -64,7 +64,7 @@ public final strictfp class MatchstickExhaustiveProvider extends MatchstickItera
         return ExhaustiveProvider.INSTANCE.distinctStringsLexAtLeast(minSize, s);
     }
 
-    public @NotNull <T> Iterable<List<T>> distinctListsShortlex(@NotNull Iterable<T> xs) {
+    public @NotNull <T> Iterable<List<T>> distinctListsShortlex(@NotNull List<T> xs) {
         return ExhaustiveProvider.INSTANCE.distinctListsShortlex(xs);
     }
 
