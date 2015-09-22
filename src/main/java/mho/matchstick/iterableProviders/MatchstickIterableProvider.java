@@ -1477,14 +1477,28 @@ public abstract strictfp class MatchstickIterableProvider {
         return wheelsProvider.strings(size);
     }
 
+    /**
+     * Generates all {@code List}s of a containing elements from a given {@code Iterable}.
+     *
+     * @param xs a {@code List} of elements
+     * @param <T> the type of values in the {@code List}s
+     */
     public @NotNull <T> Iterable<List<T>> lists(@NotNull Iterable<T> xs) {
         return wheelsProvider.lists(xs);
     }
 
+    /**
+     * Generates all {@code String}s of a containing characters from a given {@code String}.
+     *
+     * @param s a {@code String}
+     */
     public @NotNull Iterable<String> strings(@NotNull String s) {
         return wheelsProvider.strings(s);
     }
 
+    /**
+     * Generates all {@code String}s.
+     */
     public @NotNull Iterable<String> strings() {
         return wheelsProvider.strings();
     }
