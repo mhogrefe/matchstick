@@ -964,6 +964,41 @@ public abstract strictfp class MatchstickIterableProvider {
     }
 
     /**
+     * Generates pairs of values where the second value depends on the first and the second value grows linearly, but
+     * the first grows logarithmically (if applicable). There must be an infinite number of possible first values, and
+     * every first value must be associated with an infinite number of possible second values.
+     *
+     * @param xs an {@code Iterable} of values
+     * @param f a function from a value of type {@code a} to an infinite {@code Iterable} of type-{@code B} values
+     * @param <A> the type of values in the first slot
+     * @param <B> the type of values in the second slot
+     */
+    public @NotNull <A, B> Iterable<Pair<A, B>> dependentPairsInfiniteLogarithmicOrder(
+            @NotNull Iterable<A> xs,
+            @NotNull Function<A, Iterable<B>> f
+    ) {
+        return wheelsProvider.dependentPairsInfiniteLogarithmicOrder(xs, f);
+    }
+
+    /**
+     * Generates pairs of values where the second value depends on the first and the second value grows as
+     * O(n<sup>2/3</sup>), but the first grows as O(n<sup>1/3</sup>) (if applicable). There must be an infinite number
+     * of possible first values, and every first value must be associated with an infinite number of possible second
+     * values.
+     *
+     * @param xs an {@code Iterable} of values
+     * @param f a function from a value of type {@code a} to an infinite {@code Iterable} of type-{@code B} values
+     * @param <A> the type of values in the first slot
+     * @param <B> the type of values in the second slot
+     */
+    public @NotNull <A, B> Iterable<Pair<A, B>> dependentPairsInfiniteSquareRootOrder(
+            @NotNull Iterable<A> xs,
+            @NotNull Function<A, Iterable<B>> f
+    ) {
+        return wheelsProvider.dependentPairsInfiniteSquareRootOrder(xs, f);
+    }
+
+    /**
      * Generates pairs of elements where the first component grows linearly but the second grows logarithmically (if
      * applicable).
      *
@@ -992,7 +1027,7 @@ public abstract strictfp class MatchstickIterableProvider {
 
     /**
      * Generates pairs of elements where the first component grows as O(n<sup>2/3</sup>) but the second grows as
-     * O(n<sup>1/3</sup>).
+     * O(n<sup>1/3</sup>) (if applicable).
      *
      * @param as the source of values in the first slot
      * @param bs the source of values in the second slot
@@ -1008,7 +1043,7 @@ public abstract strictfp class MatchstickIterableProvider {
 
     /**
      * Generates pairs of elements where the first component grows as O(n<sup>2/3</sup>) but the second grows as
-     * O(n<sup>1/3</sup>).
+     * O(n<sup>1/3</sup>) (if applicable).
      *
      * @param xs the source of values
      * @param <T> the type of values in the both slots of the result pairs
