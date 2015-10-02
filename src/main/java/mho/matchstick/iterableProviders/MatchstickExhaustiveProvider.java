@@ -2,8 +2,6 @@ package mho.matchstick.iterableProviders;
 
 import mho.matchstick.objects.LabeledGraph;
 import mho.wheels.iterables.ExhaustiveProvider;
-import mho.wheels.ordering.Ordering;
-import mho.wheels.structures.*;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -14,38 +12,6 @@ public final strictfp class MatchstickExhaustiveProvider extends MatchstickItera
 
     private MatchstickExhaustiveProvider() {
         super(ExhaustiveProvider.INSTANCE);
-    }
-
-    public @NotNull <T> Iterable<List<T>> distinctListsLex(@NotNull Iterable<T> xs) {
-        return ExhaustiveProvider.INSTANCE.distinctListsLex(xs);
-    }
-
-    public @NotNull Iterable<String> distinctStringsLex(@NotNull String s) {
-        return ExhaustiveProvider.INSTANCE.distinctStringsLex(s);
-    }
-
-    public @NotNull <T> Iterable<List<T>> distinctListsLexAtLeast(int minSize, @NotNull Iterable<T> xs) {
-        return ExhaustiveProvider.INSTANCE.distinctListsLexAtLeast(minSize, xs);
-    }
-
-    public @NotNull Iterable<String> distinctStringsLexAtLeast(int minSize, @NotNull String s) {
-        return ExhaustiveProvider.INSTANCE.distinctStringsLexAtLeast(minSize, s);
-    }
-
-    public @NotNull <T> Iterable<List<T>> distinctListsShortlex(@NotNull List<T> xs) {
-        return ExhaustiveProvider.INSTANCE.distinctListsShortlex(xs);
-    }
-
-    public @NotNull Iterable<String> distinctStringsShortlex(@NotNull String s) {
-        return ExhaustiveProvider.INSTANCE.distinctStringsShortlex(s);
-    }
-
-    public @NotNull <T> Iterable<List<T>> distinctListsShortlexAtLeast(int minSize, @NotNull Iterable<T> xs) {
-        return ExhaustiveProvider.INSTANCE.distinctListsShortlexAtLeast(minSize, xs);
-    }
-
-    public @NotNull Iterable<String> distinctStringsShortlexAtLeast(int minSize, @NotNull String s) {
-        return ExhaustiveProvider.INSTANCE.distinctStringsShortlexAtLeast(minSize, s);
     }
 
     public @NotNull <T> Iterable<List<T>> bagsLex(int size, @NotNull Iterable<T> xs) {
