@@ -2002,7 +2002,7 @@ public abstract strictfp class MatchstickIterableProvider {
      * @param xs a {@code List} of elements
      * @param <T> the type of values in the {@code List}s
      */
-    public @NotNull <T extends Comparable<T>> Iterable<List<T>> bagsShortlex(@NotNull Iterable<T> xs) {
+    public @NotNull <T extends Comparable<T>> Iterable<List<T>> bagsShortlex(@NotNull List<T> xs) {
         return wheelsProvider.bagsShortlex(xs);
     }
 
@@ -2024,10 +2024,7 @@ public abstract strictfp class MatchstickIterableProvider {
      * @param xs a {@code List} of elements
      * @param <T> the type of values in the {@code List}s
      */
-    public @NotNull <T extends Comparable<T>> Iterable<List<T>> bagsShortlexAtLeast(
-            int minSize,
-            @NotNull Iterable<T> xs
-    ) {
+    public @NotNull <T extends Comparable<T>> Iterable<List<T>> bagsShortlexAtLeast(int minSize, @NotNull List<T> xs) {
         return wheelsProvider.bagsShortlexAtLeast(minSize, xs);
     }
 
