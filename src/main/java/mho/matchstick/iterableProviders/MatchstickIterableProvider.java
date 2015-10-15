@@ -1753,9 +1753,10 @@ public abstract strictfp class MatchstickIterableProvider {
     }
 
     /**
-     * Generates all {@code List}s of a given size containing elements from a given {@code List} with no repetitions.
+     * Generates all {@code List}s of a given size containing elements from a given {@code Iterable} with no
+     * repetitions.
      *
-     * @param xs a {@code List} of elements
+     * @param xs an {@code Iterable} of elements
      * @param size the length of each of the generated {@code List}s
      * @param <T> the type of values in the {@code List}s
      */
@@ -1764,60 +1765,60 @@ public abstract strictfp class MatchstickIterableProvider {
     }
 
     /**
-     * Generates all {@code Pair}s of elements from a {@code List} with no repetitions.
+     * Generates all {@code Pair}s of elements from an {@code Iterable} with no repetitions.
      *
-     * @param xs a {@code List}
-     * @param <T> the type of the {@code List}'s elements
+     * @param xs an {@code Iterable}
+     * @param <T> the type of the {@code Iterable}'s elements
      */
     public @NotNull <T> Iterable<Pair<T, T>> distinctPairs(@NotNull Iterable<T> xs) {
         return wheelsProvider.distinctPairs(xs);
     }
 
     /**
-     * Generates all {@code Triple}s of elements from a {@code List} with no repetitions.
+     * Generates all {@code Triple}s of elements from an {@code Iterable} with no repetitions.
      *
-     * @param xs a {@code List}
-     * @param <T> the type of the {@code List}'s elements
+     * @param xs an {@code Iterable}
+     * @param <T> the type of the {@code Iterable}'s elements
      */
     public @NotNull <T> Iterable<Triple<T, T, T>> distinctTriples(@NotNull Iterable<T> xs) {
         return wheelsProvider.distinctTriples(xs);
     }
 
     /**
-     * Generates all {@code Quadruple}s of elements from a {@code List} with no repetitions.
+     * Generates all {@code Quadruple}s of elements from an {@code Iterable} with no repetitions.
      *
-     * @param xs a {@code List}
-     * @param <T> the type of the {@code List}'s elements
+     * @param xs an {@code Iterable}
+     * @param <T> the type of the {@code Iterable}'s elements
      */
     public @NotNull <T> Iterable<Quadruple<T, T, T, T>> distinctQuadruples(@NotNull Iterable<T> xs) {
         return wheelsProvider.distinctQuadruples(xs);
     }
 
     /**
-     * Generates all {@code Quintuple}s of elements from a {@code List} with no repetitions.
+     * Generates all {@code Quintuple}s of elements from an {@code Iterable} with no repetitions.
      *
-     * @param xs a {@code List}
-     * @param <T> the type of the {@code List}'s elements
+     * @param xs an {@code Iterable}
+     * @param <T> the type of the {@code Iterable}'s elements
      */
     public @NotNull <T> Iterable<Quintuple<T, T, T, T, T>> distinctQuintuples(@NotNull Iterable<T> xs) {
         return wheelsProvider.distinctQuintuples(xs);
     }
 
     /**
-     * Generates all {@code Sextuple}s of elements from a {@code List} with no repetitions.
+     * Generates all {@code Sextuple}s of elements from an {@code Iterable} with no repetitions.
      *
-     * @param xs a {@code List}
-     * @param <T> the type of the {@code List}'s elements
+     * @param xs an {@code Iterable}
+     * @param <T> the type of the {@code Iterable}'s elements
      */
     public @NotNull <T> Iterable<Sextuple<T, T, T, T, T, T>> distinctSextuples(@NotNull Iterable<T> xs) {
         return wheelsProvider.distinctSextuples(xs);
     }
 
     /**
-     * Generates all {@code Septuple}s of elements from a {@code List} with no repetitions.
+     * Generates all {@code Septuple}s of elements from an {@code Iterable} with no repetitions.
      *
-     * @param xs a {@code List}
-     * @param <T> the type of the {@code List}'s elements
+     * @param xs an {@code Iterable}
+     * @param <T> the type of the {@code Iterable}'s elements
      */
     public @NotNull <T> Iterable<Septuple<T, T, T, T, T, T, T>> distinctSeptuples(@NotNull Iterable<T> xs) {
         return wheelsProvider.distinctSeptuples(xs);
@@ -1844,9 +1845,9 @@ public abstract strictfp class MatchstickIterableProvider {
     }
 
     /**
-     * Generates all {@code List}s containing elements from a given {@code List} with no repetitions.
+     * Generates all {@code List}s containing elements from a given {@code Iterable} with no repetitions.
      *
-     * @param xs a {@code List} of elements
+     * @param xs an {@code Iterable} of elements
      * @param <T> the type of values in the {@code List}s
      */
     public @NotNull <T> Iterable<List<T>> distinctLists(@NotNull Iterable<T> xs) {
@@ -1870,11 +1871,11 @@ public abstract strictfp class MatchstickIterableProvider {
     }
 
     /**
-     * Generates all {@code List}s with a minimum size containing elements from a given {@code List} with no
+     * Generates all {@code List}s with a minimum size containing elements from a given {@code Iterable} with no
      * repetitions.
      *
      * @param minSize the minimum size of the resulting {@code List}s
-     * @param xs a {@code List} of elements
+     * @param xs an {@code Iterable} of elements
      * @param <T> the type of values in the {@code List}s
      */
     public @NotNull <T> Iterable<List<T>> distinctListsAtLeast(int minSize, @NotNull Iterable<T> xs) {
@@ -1915,7 +1916,7 @@ public abstract strictfp class MatchstickIterableProvider {
 
     /**
      * Generates all unordered {@code Pair}s of elements from a {@code List}. The {@code Pair}s are ordered
-     * lexicographically, matching the order given by the original {@code List}.
+     * lexicographically.
      *
      * @param xs a {@code List}
      * @param <T> the type of the {@code List}'s elements
@@ -1926,7 +1927,7 @@ public abstract strictfp class MatchstickIterableProvider {
 
     /**
      * Generates all unordered {@code Triple}s of elements from a {@code List}. The {@code Triple}s are ordered
-     * lexicographically, matching the order given by the original {@code List}.
+     * lexicographically.
      *
      * @param xs a {@code List}
      * @param <T> the type of the {@code List}'s elements
@@ -1937,7 +1938,7 @@ public abstract strictfp class MatchstickIterableProvider {
 
     /**
      * Generates all unordered {@code Quadruple}s of elements from a {@code List}. The {@code Quadruple}s are ordered
-     * lexicographically, matching the order given by the original {@code List}.
+     * lexicographically.
      *
      * @param xs a {@code List}
      * @param <T> the type of the {@code List}'s elements
@@ -1948,7 +1949,7 @@ public abstract strictfp class MatchstickIterableProvider {
 
     /**
      * Generates all unordered {@code Quintuple}s of elements from a {@code List}. The {@code Quintuple}s are ordered
-     * lexicographically, matching the order given by the original {@code List}.
+     * lexicographically.
      *
      * @param xs a {@code List}
      * @param <T> the type of the {@code List}'s elements
@@ -1961,7 +1962,7 @@ public abstract strictfp class MatchstickIterableProvider {
 
     /**
      * Generates all unordered {@code Sextuple}s of elements from a {@code List}. The {@code Sextuple}s are ordered
-     * lexicographically, matching the order given by the original {@code List}.
+     * lexicographically.
      *
      * @param xs a {@code List}
      * @param <T> the type of the {@code List}'s elements
@@ -1974,7 +1975,7 @@ public abstract strictfp class MatchstickIterableProvider {
 
     /**
      * Generates all unordered {@code Septuple}s of elements from a {@code List}. The {@code Septuple}s are ordered
-     * lexicographically, matching the order given by the original {@code List}.
+     * lexicographically.
      *
      * @param xs a {@code List}
      * @param <T> the type of the {@code List}'s elements
@@ -1987,7 +1988,7 @@ public abstract strictfp class MatchstickIterableProvider {
 
     /**
      * Generates all unordered {@code String}s containing characters from a given {@code String}. The {@code String}s
-     * are ordered lexicographically, matching the order given by the original {@code String}.
+     * are ordered lexicographically.
      *
      * @param s a {@code String}
      */
@@ -2039,44 +2040,95 @@ public abstract strictfp class MatchstickIterableProvider {
         return wheelsProvider.stringBagsShortlexAtLeast(minSize, s);
     }
 
+    /**
+     * Generates all unordered {@code List}s of a given size containing elements from a given {@code Iterable}.
+     *
+     * @param size the length of each of the generated {@code List}s
+     * @param xs an {@code Iterable} of elements
+     * @param <T> the type of values in the {@code List}s
+     */
     public @NotNull <T extends Comparable<T>> Iterable<List<T>> bags(int size, @NotNull Iterable<T> xs) {
         return wheelsProvider.bags(size, xs);
     }
 
+    /**
+     * Generates all unordered {@code Pair}s of elements from an {@code Iterable}.
+     *
+     * @param xs an {@code Iterable}
+     * @param <T> the type of the {@code Iterable}'s elements
+     */
     public @NotNull <T extends Comparable<T>> Iterable<Pair<T, T>> bagPairs(@NotNull Iterable<T> xs) {
         return wheelsProvider.bagPairs(xs);
     }
 
+    /**
+     * Generates all unordered {@code Triple}s of elements from an {@code Iterable}.
+     *
+     * @param xs an {@code Iterable}
+     * @param <T> the type of the {@code Iterable}'s elements
+     */
     public @NotNull <T extends Comparable<T>> Iterable<Triple<T, T, T>> bagTriples(@NotNull Iterable<T> xs) {
         return wheelsProvider.bagTriples(xs);
     }
 
+    /**
+     * Generates all unordered {@code Quadruple}s of elements from an {@code Iterable}.
+     *
+     * @param xs an {@code Iterable}
+     * @param <T> the type of the {@code Iterable}'s elements
+     */
     public @NotNull <T extends Comparable<T>> Iterable<Quadruple<T, T, T, T>> bagQuadruples(@NotNull Iterable<T> xs) {
         return wheelsProvider.bagQuadruples(xs);
     }
 
+    /**
+     * Generates all unordered {@code Quintuple}s of elements from an {@code Iterable}.
+     *
+     * @param xs an {@code Iterable}
+     * @param <T> the type of the {@code Iterable}'s elements
+     */
     public @NotNull <T extends Comparable<T>> Iterable<Quintuple<T, T, T, T, T>> bagQuintuples(
             @NotNull Iterable<T> xs
     ) {
         return wheelsProvider.bagQuintuples(xs);
     }
 
+    /**
+     * Generates all unordered {@code Sextuple}s of elements from an {@code Iterable}.
+     *
+     * @param xs an {@code Iterable}
+     * @param <T> the type of the {@code Iterable}'s elements
+     */
     public @NotNull <T extends Comparable<T>> Iterable<Sextuple<T, T, T, T, T, T>> bagSextuples(
             @NotNull Iterable<T> xs
     ) {
         return wheelsProvider.bagSextuples(xs);
     }
 
+    /**
+     * Generates all unordered {@code Septuple}s of elements from an {@code Iterable}.
+     *
+     * @param xs an {@code Iterable}
+     * @param <T> the type of the {@code Iterable}'s elements
+     */
     public @NotNull <T extends Comparable<T>> Iterable<Septuple<T, T, T, T, T, T, T>> bagSeptuples(
             @NotNull Iterable<T> xs
     ) {
         return wheelsProvider.bagSeptuples(xs);
     }
 
+    /**
+     * Generates all unordered {@code String}s containing characters from a given {@code String}.
+     *
+     * @param s a {@code String}
+     */
     public @NotNull Iterable<String> stringBags(int size, @NotNull String s) {
         return wheelsProvider.stringBags(size, s);
     }
 
+    /**
+     * Generates all unordered {@code String}s.
+     */
     public @NotNull Iterable<String> stringBags(int size) {
         return wheelsProvider.stringBags(size);
     }
