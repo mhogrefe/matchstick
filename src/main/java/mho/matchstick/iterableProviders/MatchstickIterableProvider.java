@@ -2387,7 +2387,7 @@ public abstract strictfp class MatchstickIterableProvider {
      * @param xs an {@code Iterable} of elements
      * @param <T> the type of values in the {@code List}s
      */
-    public @NotNull <T> Iterable<List<T>> subsets(int size, @NotNull Iterable<T> xs) {
+    public @NotNull <T extends Comparable<T>> Iterable<List<T>> subsets(int size, @NotNull Iterable<T> xs) {
         return wheelsProvider.subsets(size, xs);
     }
 
