@@ -2,6 +2,7 @@ package mho.matchstick.iterableProviders;
 
 import mho.matchstick.objects.LabeledGraph;
 import mho.wheels.iterables.ExhaustiveProvider;
+import mho.wheels.iterables.IterableUtils;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -19,7 +20,7 @@ public final strictfp class MatchstickExhaustiveProvider extends MatchstickItera
     }
 
     @Override
-    public @NotNull <T extends Comparable<T>> Iterable<LabeledGraph<T>> labeledGraphs(@NotNull Iterable<T> ns) {
+    public @NotNull <T extends Comparable<T>> Iterable<LabeledGraph<T>> labeledGraphs(@NotNull List<T> ns) {
         return null;
     }
 }

@@ -2557,7 +2557,5 @@ public abstract strictfp class MatchstickIterableProvider {
         return wheelsProvider.substrings(s);
     }
 
-    public abstract @NotNull <T extends Comparable<T>> Iterable<LabeledGraph<T>> labeledGraphs(
-            @NotNull Iterable<T> ns
-    );
+    public abstract @NotNull <T extends Comparable<T>> Iterable<LabeledGraph<T>> labeledGraphs(@NotNull List<T> ns);
 }

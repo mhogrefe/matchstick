@@ -6,7 +6,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.*;
 
 import static mho.wheels.iterables.IterableUtils.*;
-import static org.junit.Assert.*;
+import static mho.wheels.testing.Testing.*;
 
 public final class LabeledGraph<T extends Comparable<T>> {
     private static final @NotNull Comparator<Pair<Integer, Integer>> EDGE_COMPARATOR = new Pair.PairComparator<>(
@@ -114,18 +114,18 @@ public final class LabeledGraph<T extends Comparable<T>> {
     @SuppressWarnings("SimplifiableIfStatement")
     public void validate() {
         int order = nodes.size();
-        assertFalse(toString(), any(n -> n == null, nodes));
-        assertTrue(toString(), increasing(nodes));
-        assertEquals(toString(), indexMap.size(), order);
+        assertFalse(this, any(n -> n == null, nodes));
+        assertTrue(this, increasing(nodes));
+        assertEquals(this, indexMap.size(), order);
         assertTrue(
-                toString(),
+                this,
                 all(
                         p -> p.a != null && p.b != null && p.b >= 0 && p.b < order && nodes.get(p.b).equals(p.a),
                         fromMap(indexMap)
                 )
         );
         assertTrue(
-                toString(),
+                this,
                 all(
                         e -> {
                             if (e == null || e.a == null || e.b == null) return false;
@@ -136,6 +136,6 @@ public final class LabeledGraph<T extends Comparable<T>> {
                         edges
                 )
         );
-        assertTrue(toString(), increasing(EDGE_COMPARATOR, edges));
+        assertTrue(this, increasing(EDGE_COMPARATOR, edges));
     }
 }
