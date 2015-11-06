@@ -9,10 +9,8 @@ import static mho.wheels.iterables.IterableUtils.*;
 import static mho.wheels.testing.Testing.*;
 
 public final class LabeledGraph<T extends Comparable<T>> {
-    private static final @NotNull Comparator<Pair<Integer, Integer>> EDGE_COMPARATOR = new Pair.PairComparator<>(
-            Integer::compare,
-            Integer::compare
-    );
+    private static final @NotNull Comparator<Pair<Integer, Integer>> EDGE_COMPARATOR =
+            new Pair.PairComparator<>(Integer::compare, Integer::compare);
     private @NotNull List<T> nodes;
     private @NotNull Map<T, Integer> indexMap;
     private @NotNull List<Pair<Integer, Integer>> edges;
