@@ -19,10 +19,6 @@ public final strictfp class MatchstickExhaustiveProvider extends MatchstickItera
         super(ExhaustiveProvider.INSTANCE);
     }
 
-    public @NotNull <T> Iterable<List<T>> controlledListsLex(@NotNull List<Iterable<T>> xss) {
-        return ExhaustiveProvider.INSTANCE.controlledListsLex(xss);
-    }
-
     @Override
     public @NotNull <T extends Comparable<T>> Iterable<LabeledGraph<T>> labeledGraphs(@NotNull List<T> ns) {
         return map(
