@@ -2573,6 +2573,27 @@ public abstract strictfp class MatchstickIterableProvider {
         return wheelsProvider.repeatingIterablesDistinctAtLeast(minSize, xs);
     }
 
+    /**
+     * Generates all sublists of a given {@code List}.
+     *
+     * @param xs a {@code List}
+     * @param <T> the type of the elements in {@code xs}
+     * @return sublists of {@code xs}
+     */
+    public @NotNull <T> Iterable<List<T>> sublists(@NotNull List<T> xs) {
+        return wheelsProvider.sublists(xs);
+    }
+
+    /**
+     * Generates all substrings of a given {@code String}.
+     *
+     * @param s a {@code String}
+     * @return substrings of {@code s}
+     */
+    public @NotNull Iterable<String> substrings(@NotNull String s) {
+        return wheelsProvider.substrings(s);
+    }
+
     public @NotNull Iterable<String> stringsWithChar(char c, @NotNull String s) {
         return wheelsProvider.stringsWithChar(c, s);
     }
@@ -2617,10 +2638,6 @@ public abstract strictfp class MatchstickIterableProvider {
 
     public @NotNull <K, V> Iterable<Map<K, V>> maps(@NotNull List<K> ks, Iterable<V> vs) {
         return wheelsProvider.maps(ks, vs);
-    }
-
-    public @NotNull Iterable<String> substrings(@NotNull String s) {
-        return wheelsProvider.substrings(s);
     }
 
     public abstract @NotNull <T extends Comparable<T>> Iterable<LabeledGraph<T>> labeledGraphs(@NotNull List<T> ns);
