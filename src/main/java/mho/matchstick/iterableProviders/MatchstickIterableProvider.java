@@ -2578,7 +2578,6 @@ public abstract strictfp class MatchstickIterableProvider {
      *
      * @param xs a {@code List}
      * @param <T> the type of the elements in {@code xs}
-     * @return sublists of {@code xs}
      */
     public @NotNull <T> Iterable<List<T>> sublists(@NotNull List<T> xs) {
         return wheelsProvider.sublists(xs);
@@ -2588,7 +2587,6 @@ public abstract strictfp class MatchstickIterableProvider {
      * Generates all substrings of a given {@code String}.
      *
      * @param s a {@code String}
-     * @return substrings of {@code s}
      */
     public @NotNull Iterable<String> substrings(@NotNull String s) {
         return wheelsProvider.substrings(s);
@@ -2601,7 +2599,6 @@ public abstract strictfp class MatchstickIterableProvider {
      * @param x an element that the output {@code List}s must contain
      * @param xs a {@code List}
      * @param <T> the type of the elements in {@code xs}
-     * @return all {@code List}s containing {@code x} and possibly members of {@code xs}
      */
     public @NotNull <T> Iterable<List<T>> listsWithElement(@Nullable T x, @NotNull Iterable<T> xs) {
         return wheelsProvider.listsWithElement(x, xs);
@@ -2613,7 +2610,6 @@ public abstract strictfp class MatchstickIterableProvider {
      *
      * @param c a character that the output {@code String}s must contain
      * @param s a {@code String}
-     * @return all {@code String}s containing {@code c} and possibly characters of {@code s}
      */
     public @NotNull Iterable<String> stringsWithChar(char c, @NotNull String s) {
         return wheelsProvider.stringsWithChar(c, s);
@@ -2623,7 +2619,6 @@ public abstract strictfp class MatchstickIterableProvider {
      * Generates all {@code String}s which contain a particular character.
      *
      * @param c a character that the output {@code String}s must contain
-     * @return all {@code String}s containing {@code c}
      */
     public @NotNull Iterable<String> stringsWithChar(char c) {
         return wheelsProvider.stringsWithChar(c);
