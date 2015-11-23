@@ -2,8 +2,15 @@ package mho.matchstick.iterableProviders;
 
 import mho.matchstick.objects.LabeledGraph;
 import mho.wheels.iterables.ExhaustiveProvider;
-import mho.wheels.ordering.Ordering;
+import mho.wheels.iterables.IterableUtils;
+import mho.wheels.structures.Pair;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.Comparator;
+import java.util.List;
+
+import static mho.wheels.iterables.IterableUtils.map;
+import static mho.wheels.iterables.IterableUtils.toList;
 
 @SuppressWarnings("unused")
 public final strictfp class MatchstickExhaustiveProvider extends MatchstickIterableProvider {
@@ -13,36 +20,26 @@ public final strictfp class MatchstickExhaustiveProvider extends MatchstickItera
         super(ExhaustiveProvider.INSTANCE);
     }
 
-    public @NotNull Iterable<Ordering> orderingsIncreasing() {
-        return ExhaustiveProvider.INSTANCE.orderingsIncreasing();
-    }
-
-    public @NotNull Iterable<Byte> bytesIncreasing() {
-        return ExhaustiveProvider.INSTANCE.bytesIncreasing();
-    }
-
-    public @NotNull Iterable<Short> shortsIncreasing() {
-        return ExhaustiveProvider.INSTANCE.shortsIncreasing();
-    }
-
-    public @NotNull Iterable<Integer> integersIncreasing() {
-        return ExhaustiveProvider.INSTANCE.integersIncreasing();
-    }
-
-    public @NotNull Iterable<Long> longsIncreasing() {
-        return ExhaustiveProvider.INSTANCE.longsIncreasing();
-    }
-
-    public @NotNull Iterable<Character> asciiCharactersIncreasing() {
-        return ExhaustiveProvider.INSTANCE.asciiCharactersIncreasing();
-    }
-
-    public @NotNull Iterable<Character> charactersIncreasing() {
-        return ExhaustiveProvider.INSTANCE.charactersIncreasing();
-    }
-
     @Override
-    public @NotNull <T extends Comparable<T>> Iterable<LabeledGraph<T>> labeledGraphs(@NotNull Iterable<T> ns) {
-        return null;
+    public @NotNull <T extends Comparable<T>> Iterable<LabeledGraph<T>> labeledGraphs(@NotNull List<T> ns) {
+        return map(
+                edgeSet -> LabeledGraph.of(ns, toList(map(e -> e.p, edgeSet))),
+                subsetsShortlex(toList(map(Edge::new, subsetPairsLex(toList(IterableUtils.range(0, ns.size() - 1))))))
+        );
+    }
+
+    private static class Edge implements Comparable<Edge> {
+        private static final @NotNull Comparator<Pair<Integer, Integer>> EDGE_COMPARATOR =
+                new Pair.PairComparator<>(Integer::compare, Integer::compare);
+        public final @NotNull Pair<Integer, Integer> p;
+
+        public Edge(@NotNull Pair<Integer, Integer> p) {
+            this.p = p;
+        }
+
+        @Override
+        public int compareTo(@NotNull Edge that) {
+            return EDGE_COMPARATOR.compare(p, that.p);
+        }
     }
 }
