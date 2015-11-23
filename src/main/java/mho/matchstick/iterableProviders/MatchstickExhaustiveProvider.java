@@ -9,7 +9,8 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Comparator;
 import java.util.List;
 
-import static mho.wheels.iterables.IterableUtils.*;
+import static mho.wheels.iterables.IterableUtils.map;
+import static mho.wheels.iterables.IterableUtils.toList;
 
 @SuppressWarnings("unused")
 public final strictfp class MatchstickExhaustiveProvider extends MatchstickIterableProvider {
