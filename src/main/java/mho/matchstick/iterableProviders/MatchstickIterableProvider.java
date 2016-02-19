@@ -2815,13 +2815,19 @@ public abstract strictfp class MatchstickIterableProvider {
     }
 
     /**
-     * Generates all {@code RandomProvider}s with a fixed {@code scale} and {@code secondaryScale}.
+     * Generates all {@code RandomProvider}s with a fixed {@code scale}, {@code secondaryScale}, and
+     * {@code tertiaryScale}.
      *
      * @param scale the {@code scale} of the generated {@code RandomProvider}s
      * @param secondaryScale the {@code secondaryScale} of the generated {@code RandomProvider}s
+     * @param tertiaryScale the {@code tertiaryScale} of the generated {@code RandomProvider}s
      */
-    public @NotNull Iterable<RandomProvider> randomProvidersFixedScales(int scale, int secondaryScale) {
-        return wheelsProvider.randomProvidersFixedScales(scale, secondaryScale);
+    public @NotNull Iterable<RandomProvider> randomProvidersFixedScales(
+            int scale,
+            int secondaryScale,
+            int tertiaryScale
+    ) {
+        return wheelsProvider.randomProvidersFixedScales(scale, secondaryScale, tertiaryScale);
     }
 
     /**
@@ -2832,10 +2838,17 @@ public abstract strictfp class MatchstickIterableProvider {
     }
 
     /**
-     * Generates all {@code RandomProvider}s with the default {@code secondaryScale}.
+     * Generates all {@code RandomProvider}s with the default {@code secondaryScale} and {@code tertiaryScale}.
      */
-    public @NotNull Iterable<RandomProvider> randomProvidersDefaultSecondaryScale() {
-        return wheelsProvider.randomProvidersDefaultSecondaryScale();
+    public @NotNull Iterable<RandomProvider> randomProvidersDefaultSecondaryAndTertiaryScale() {
+        return wheelsProvider.randomProvidersDefaultSecondaryAndTertiaryScale();
+    }
+
+    /**
+     * Generates all {@code RandomProvider}s with the default {@code tertiaryScale}.
+     */
+    public @NotNull Iterable<RandomProvider> randomProvidersDefaultTertiaryScale() {
+        return wheelsProvider.randomProvidersDefaultTertiaryScale();
     }
 
     /**
