@@ -2,7 +2,6 @@ package mho.matchstick.iterableProviders;
 
 import mho.matchstick.objects.LabeledGraph;
 import mho.wheels.iterables.ExhaustiveProvider;
-import mho.wheels.iterables.IterableUtils;
 import mho.wheels.structures.Pair;
 import org.jetbrains.annotations.NotNull;
 
@@ -24,7 +23,9 @@ public final strictfp class MatchstickExhaustiveProvider extends MatchstickItera
     public @NotNull <T extends Comparable<T>> Iterable<LabeledGraph<T>> labeledGraphs(@NotNull List<T> ns) {
         return map(
                 edgeSet -> LabeledGraph.of(ns, toList(map(e -> e.p, edgeSet))),
-                subsetsShortlex(toList(map(Edge::new, subsetPairsLex(toList(IterableUtils.range(0, ns.size() - 1))))))
+                subsetsShortlex(
+                        toList(map(Edge::new, subsetPairsLex(toList(INSTANCE.rangeIncreasing(0, ns.size() - 1)))))
+                )
         );
     }
 
