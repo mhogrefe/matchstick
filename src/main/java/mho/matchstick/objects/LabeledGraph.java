@@ -29,7 +29,7 @@ public final class LabeledGraph<T extends Comparable<T>> {
             @NotNull List<T> nodes,
             @NotNull List<Pair<Integer, Integer>> edges
     ) {
-        if (any(n -> n == null, nodes)) {
+        if (any(Objects::isNull, nodes)) {
             throw new NullPointerException();
         }
         if (!unique(nodes)) {
@@ -112,7 +112,7 @@ public final class LabeledGraph<T extends Comparable<T>> {
     @SuppressWarnings("SimplifiableIfStatement")
     public void validate() {
         int order = nodes.size();
-        assertFalse(this, any(n -> n == null, nodes));
+        assertFalse(this, any(Objects::isNull, nodes));
         assertTrue(this, increasing(nodes));
         assertEquals(this, indexMap.size(), order);
         assertTrue(
