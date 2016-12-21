@@ -1,5 +1,6 @@
 package mho.matchstick.objects;
 
+import mho.wheels.ordering.Ordering;
 import mho.wheels.structures.Pair;
 import org.jetbrains.annotations.NotNull;
 
@@ -113,7 +114,7 @@ public final class LabeledGraph<T extends Comparable<T>> {
     public void validate() {
         int order = nodes.size();
         assertFalse(this, any(Objects::isNull, nodes));
-        assertTrue(this, increasing(nodes));
+        assertTrue(this, Ordering.increasing(nodes));
         assertEquals(this, indexMap.size(), order);
         assertTrue(
                 this,
@@ -134,6 +135,6 @@ public final class LabeledGraph<T extends Comparable<T>> {
                         edges
                 )
         );
-        assertTrue(this, increasing(EDGE_COMPARATOR, edges));
+        assertTrue(this, Ordering.increasing(EDGE_COMPARATOR, edges));
     }
 }
